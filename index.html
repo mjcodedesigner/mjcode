@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMBB | Canadian Manufacturing Business Buyers — Sell Directly, No Broker</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            darkest: '#071A10',
+                            dark: '#0B301E',
+                            DEFAULT: '#0F3823',
+                            light: '#1B5437',
+                            gold: '#D4AF37',
+                            goldlight: '#F4E8C1',
+                            golddark: '#AA881E',
+                            accent: '#F9FBF9',
+                            muted: '#6B7280'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Fade-in & Slide animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .bg-pattern {
+            background-color: #071A10;
+            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+        .blur-blob {
+            filter: blur(100px);
+            opacity: 0.35;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-brand-accent selection:bg-brand-gold selection:text-brand-darkest">
+
+    <!-- Top Notification Bar -->
+    <div class="bg-brand-darkest text-brand-goldlight text-xs py-2 px-4 text-center border-b border-brand-gold/10 font-medium">
+        <span class="inline-block px-2 py-0.5 bg-brand-gold text-brand-darkest font-bold rounded mr-2 text-[10px] uppercase tracking-wider">Direct Buyer</span>
+        Actively seeking manufacturing acquisitions across Canada & US. No broker commission, 100% confidential.
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex flex-col">
+                        <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brand-dark flex items-center">
+                            CMBB <span class="text-brand-gold ml-1">.</span>
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] text-brand-muted uppercase tracking-widest font-bold -mt-1">
+                            Canadian Manufacturing Business Buyers
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex space-x-8 text-sm font-semibold text-gray-600">
+                    <a href="#why-cmbb" class="hover:text-brand transition">Why CMBB</a>
+                    <a href="#process" class="hover:text-brand transition">Our Process</a>
+                    <a href="#criteria" class="hover:text-brand transition">Acquisition Criteria</a>
+                    <a href="#case-studies" class="hover:text-brand transition">Case Studies</a>
+                    <a href="#reviews" class="hover:text-brand transition">Reviews</a>
+                    <a href="#faqs" class="hover:text-brand transition">FAQs</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+15482792958" class="text-gray-600 hover:text-brand font-semibold text-sm transition flex items-center">
+                        <i class="fa-solid fa-phone text-brand-gold mr-2"></i> +1 (548) 279-2958
+                    </a>
+                    <a href="#valuation-wizard" class="bg-brand text-white hover:bg-brand-light text-sm font-bold px-5 py-3 rounded-md shadow-md hover:shadow-lg transition-all duration-150">
+                        Confidential Inquiry
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-600 hover:text-brand focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+                <a href="#why-cmbb" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">Why CMBB</a>
+                <a href="#process" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">Our Process</a>
+                <a href="#criteria" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">Acquisition Criteria</a>
+                <a href="#case-studies" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">Case Studies</a>
+                <a href="#reviews" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">Reviews</a>
+                <a href="#faqs" class="block px-3 py-2.5 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-brand">FAQs</a>
+                <div class="pt-4 pb-2 border-t border-gray-200 px-3">
+                    <a href="tel:+15482792958" class="flex items-center text-gray-700 font-semibold mb-3">
+                        <i class="fa-solid fa-phone text-brand-gold mr-3"></i> +1 (548) 279-2958
+                    </a>
+                    <a href="#valuation-wizard" class="block text-center w-full bg-brand text-white py-3 rounded-md font-bold hover:bg-brand-light transition">
+                        Confidential Inquiry
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-pattern overflow-hidden py-24 lg:py-32">
+        <!-- Floating abstract glowing lights for corporate luxury feeling -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-gold rounded-full blur-blob pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-brand-light rounded-full blur-blob pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Content Column -->
+                <div class="lg:col-span-7 space-y-8 animate-fade-in text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-light/30 border border-brand-gold/30 rounded-full px-4 py-1.5 text-xs text-brand-goldlight font-semibold tracking-wide">
+                        <span class="flex h-2 w-2 relative">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
+                        </span>
+                        A Canadian Private Equity Partner Dedicated to Manufacturing
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-tight">
+                        Sell Your Canadian Manufacturing Business <span class="text-brand-gold">Directly</span>
+                    </h1>
+
+                    <p class="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                        We acquire small and medium-sized family or founder-led manufacturing companies across Canada and the US.
+                        <strong>No brokers, no listing, no fees, and 100% confidentiality.</strong> Retain your team, protect your legacy, and retire with peace of mind.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#valuation-wizard" class="bg-brand-gold hover:bg-amber-400 text-brand-darkest font-bold px-8 py-4 rounded-md shadow-lg text-center transition duration-150">
+                            Start Confidential Valuation <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <a href="#process" class="border border-white/30 text-white hover:bg-white/10 font-bold px-8 py-4 rounded-md text-center transition duration-150">
+                            See Our Process
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators inside Hero -->
+                    <div class="pt-6 border-t border-white/10 grid grid-cols-3 gap-4 text-white/80">
+                        <div>
+                            <p class="text-brand-gold text-2xl font-serif font-semibold">5.0 <i class="fa-solid fa-star text-xs align-middle -mt-1"></i></p>
+                            <p class="text-xs text-gray-400">Google Customer Rating</p>
+                        </div>
+                        <div>
+                            <p class="text-brand-gold text-2xl font-serif font-semibold">100%</p>
+                            <p class="text-xs text-gray-400">Strictly Confidential</p>
+                        </div>
+                        <div>
+                            <p class="text-brand-gold text-2xl font-serif font-semibold">&lt; 90 Days</p>
+                            <p class="text-xs text-gray-400">Average Close Timeline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image/Card Column -->
+                <div class="lg:col-span-5 relative mt-6 lg:mt-0">
+                    <div class="relative bg-gradient-to-br from-brand/90 to-brand-darkest/95 border border-brand-gold/30 rounded-2xl p-8 shadow-2xl text-white space-y-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-brand-gold text-xs font-bold uppercase tracking-wider">Latest Acquisition</span>
+                            <span class="bg-emerald-800 text-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded uppercase">Success Story</span>
+                        </div>
+
+                        <div class="border-b border-brand-light pb-4">
+                            <h3 class="font-serif text-2xl text-white font-bold">Turnstile Security Systems Inc.</h3>
+                            <p class="text-sm text-gray-300 italic mt-1">"The Secure Choice" — Established 1980</p>
+                        </div>
+
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            A legendary Canadian manufacturer and distributor of physical security hardware & pedestrian access gates.
+                            Founder successfully retired after a transparent 45-day transition.
+                        </p>
+
+                        <div class="space-y-2 bg-black/20 p-4 rounded-lg border border-brand-light/30">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">Location:</span>
+                                <span class="text-white font-medium">Ontario, Canada</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">Legacy Status:</span>
+                                <span class="text-brand-gold font-medium">Fully Preserved & Retained</span>
+                            </div>
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">Transition Plan:</span>
+                                <span class="text-white font-medium">Smooth Handover Completed</span>
+                            </div>
+                        </div>
+
+                        <div class="text-center pt-2">
+                            <a href="#case-studies" class="text-brand-gold hover:text-white text-xs font-bold tracking-wider uppercase inline-flex items-center group transition">
+                                View Full Case Study <i class="fa-solid fa-arrow-right ml-1 text-[10px] group-hover:translate-x-1 transition"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stat/Numbers Section -->
+    <section class="bg-white py-12 border-b border-gray-100 shadow-sm relative z-20 -mt-8 mx-auto max-w-6xl rounded-xl border border-gray-200/50">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-6 text-center divide-x divide-gray-100">
+            <div>
+                <p class="text-4xl lg:text-5xl font-serif font-bold text-brand mb-1">100+</p>
+                <p class="text-xs uppercase tracking-wider font-bold text-gray-500">Years Exp.</p>
+                <p class="text-[11px] text-gray-400 mt-1 px-2">Combined leadership operations & advisory</p>
+            </div>
+            <div>
+                <p class="text-4xl lg:text-5xl font-serif font-bold text-brand mb-1">$500B+</p>
+                <p class="text-xs uppercase tracking-wider font-bold text-gray-500">Assets Managed</p>
+                <p class="text-[11px] text-gray-400 mt-1 px-2">Institutional-grade transactional scale</p>
+            </div>
+            <div>
+                <p class="text-4xl lg:text-5xl font-serif font-bold text-brand mb-1">100+</p>
+                <p class="text-xs uppercase tracking-wider font-bold text-gray-500">M&A Deals Closed</p>
+                <p class="text-[11px] text-gray-400 mt-1 px-2">Seamless transaction and rollover structures</p>
+            </div>
+            <div>
+                <p class="text-4xl lg:text-5xl font-serif font-bold text-brand mb-1">100%</p>
+                <p class="text-xs uppercase tracking-wider font-bold text-gray-500">Confidentiality</p>
+                <p class="text-[11px] text-gray-400 mt-1 px-2">Discretion from the initial intro to payout</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why CMBB Section -->
+    <section id="why-cmbb" class="py-24 bg-brand-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">Why Sell to CMBB</h2>
+                <p class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">A Transparent, High-Value Alternative to Brokers</p>
+                <p class="text-gray-600">Brokers charge 5% to 10% in commission fees, list your business publicly where employees can find out, and drag out sales for over a year. We operate differently.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-200">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-50 text-brand flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-handshake-angle text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3">Direct Buyer, Not a Broker</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        We represent the actual buyer with our own dedicated transition funds. There are no broker commissions, listing fees, or transaction finders' fees to you. What we value is what you receive.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-200">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-50 text-brand flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-users-gear text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3">Workforce Preservation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Many private equity firms gut operations to flip the business. We buy, hold, and support. We honor the staff who built your business, preserving your local workforce and reputation intact.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition duration-200">
+                    <div class="w-12 h-12 rounded-lg bg-emerald-50 text-brand flex items-center justify-center text-xl mb-6">
+                        <i class="fa-solid fa-user-shield text-brand-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-brand-dark mb-3">Guaranteed Discretion</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        No public listings on business listing websites. Your customers, competitors, and staff will not know your business is for sale until terms are finalized and a transition plan is established.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Side-by-Side Comparison Grid -->
+            <div class="mt-16 bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+
+                    <!-- CMBB Side -->
+                    <div class="p-8 lg:p-12 bg-brand-dark text-white space-y-6">
+                        <h4 class="font-serif text-2xl font-bold text-brand-gold">Selling to CMBB</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>0% Broker Fees:</strong> Keep the full enterprise valuation of your hard work.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Fast Closings:</strong> Complete negotiations, due diligence, and capital funding under 90 days.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Operational Support:</strong> We have over 100 years of deep operating history to help shepherd the transition smoothly.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-check text-brand-gold mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Respect for Legacy:</strong> We maintain the company name, facility, values, and staff.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Broker Side -->
+                    <div class="p-8 lg:p-12 bg-gray-50 text-gray-700 space-y-6 border-t md:border-t-0 md:border-l border-gray-200">
+                        <h4 class="font-serif text-2xl font-bold text-gray-900">Listing with Brokers</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-xmark text-red-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>5% - 10% Commision:</strong> Millions of dollars shaved off your retirement payout.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-xmark text-red-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>6 to 18 Months:</strong> Protracted timelines, dozens of meetings, and deal fatigue.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-xmark text-red-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Risk of Leak:</strong> Public advertising alerts competitors, creates anxiety for key employees and triggers client loss.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-regular fa-circle-xmark text-red-500 mt-1 mr-3 flex-shrink-0"></i>
+                                <span><strong>Unknown Buyers:</strong> May sell to liquidators or competitors who shutter facilities.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section id="process" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">A Streamlined Transition</h2>
+                <p class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Our Process — In 4 Simple Steps</p>
+                <p class="text-gray-600">We respect your time. Our acquisitions are structured to be transparent, straightforward, and efficient, ensuring you can transition to your retirement timeline seamlessly.</p>
+            </div>
+
+            <!-- Process Timeline UI -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <!-- Timeline Connector Line -->
+                <div class="hidden md:block absolute top-12 left-1/8 right-1/8 h-0.5 bg-gray-150 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-4 group">
+                    <div class="w-16 h-16 rounded-full bg-brand text-white font-serif font-bold text-xl flex items-center justify-center border-4 border-brand-accent shadow-md group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                        01
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-brand-dark">Initial Conversation</h3>
+                    <p class="text-xs text-brand uppercase tracking-wider font-semibold">Day 1 - 7</p>
+                    <p class="text-gray-600 text-xs leading-relaxed px-4">
+                        A strictly confidential call to understand your operational legacy, retirement timeline, and valuation goals. No obligations.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-4 group">
+                    <div class="w-16 h-16 rounded-full bg-brand text-white font-serif font-bold text-xl flex items-center justify-center border-4 border-brand-accent shadow-md group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                        02
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-brand-dark">Valuation & Offer</h3>
+                    <p class="text-xs text-brand uppercase tracking-wider font-semibold">Day 7 - 21</p>
+                    <p class="text-gray-600 text-xs leading-relaxed px-4">
+                        We review baseline financial indicators directly and supply a fair valuation model and a formal Letter of Intent (LOI) within two weeks.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-4 group">
+                    <div class="w-16 h-16 rounded-full bg-brand text-white font-serif font-bold text-xl flex items-center justify-center border-4 border-brand-accent shadow-md group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                        03
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-brand-dark">Due Diligence</h3>
+                    <p class="text-xs text-brand uppercase tracking-wider font-semibold">Day 21 - 60</p>
+                    <p class="text-gray-600 text-xs leading-relaxed px-4">
+                        A focused review of core operations and standard legal compliance. No endless committee layers — just clear, milestone-driven progress.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative z-10 flex flex-col items-center text-center space-y-4 group">
+                    <div class="w-16 h-16 rounded-full bg-brand text-white font-serif font-bold text-xl flex items-center justify-center border-4 border-brand-accent shadow-md group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                        04
+                    </div>
+                    <h3 class="font-serif text-lg font-bold text-brand-dark">Close & Transition</h3>
+                    <p class="text-xs text-brand uppercase tracking-wider font-semibold">Day 60 - 90</p>
+                    <p class="text-gray-600 text-xs leading-relaxed px-4">
+                        Capital wired on closing day. We then execute a cooperative transition plan to introduce leadership, reassuring employees and clients.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acquisition Criteria Section -->
+    <section id="criteria" class="py-24 bg-brand-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">What We Look For</h2>
+                    <p class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">Our Investment & Acquisition Criteria</p>
+                    <p class="text-gray-600">
+                        While we focus predominantly on light and medium manufacturing operations in Canada and the northern United States, we are sector-agnostic for businesses displaying solid historical margins and clear customer loyalty.
+                    </p>
+                    <div class="p-5 bg-white border border-gray-150 rounded-lg shadow-sm">
+                        <p class="text-sm font-semibold text-brand"><i class="fa-solid fa-circle-info mr-2 text-brand-gold"></i> Fast Initial Evaluations</p>
+                        <p class="text-xs text-gray-500 mt-1">If your business matches these indicators, we are typically prepared to deliver an initial valuation offer within 7 to 10 days of a preliminary inquiry.</p>
+                    </div>
+                </div>
+
+                <!-- Right Checkboxes Column -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-gray-250/60 p-8 shadow-sm grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-5 bg-brand-accent rounded-xl border border-gray-100 space-y-3">
+                        <h4 class="font-serif font-bold text-brand-dark text-lg flex items-center">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs mr-3"><i class="fa-solid fa-industry"></i></span> Sector
+                        </h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Light manufacturing, metal fabrication, tooling, machinery, custom packaging, physical security, B2B hardware, assembly.</p>
+                    </div>
+
+                    <div class="p-5 bg-brand-accent rounded-xl border border-gray-100 space-y-3">
+                        <h4 class="font-serif font-bold text-brand-dark text-lg flex items-center">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs mr-3"><i class="fa-solid fa-chart-line"></i></span> Revenue Range
+                        </h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Typically $1 million to $50 million of recurring revenue, with EBITDA margins starting at 10%+ or stable cash flows.</p>
+                    </div>
+
+                    <div class="p-5 bg-brand-accent rounded-xl border border-gray-100 space-y-3">
+                        <h4 class="font-serif font-bold text-brand-dark text-lg flex items-center">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs mr-3"><i class="fa-solid fa-calendar-days"></i></span> History
+                        </h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Minimum of 5+ years of operational history with verifiable historical and financial records.</p>
+                    </div>
+
+                    <div class="p-5 bg-brand-accent rounded-xl border border-gray-100 space-y-3">
+                        <h4 class="font-serif font-bold text-brand-dark text-lg flex items-center">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs mr-3"><i class="fa-solid fa-people-carry-box"></i></span> Workforce
+                        </h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Retained management, plant supervisor or skilled workforce. We prefer structured, self-operating setups.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">Stewardship in Action</h2>
+                <p class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Acquisition Case Study</p>
+                <p class="text-gray-600">See how we collaborated with a prominent Ontario physical hardware manufacturer to deliver a full exit, while preserving brand heritage, name, and operations.</p>
+            </div>
+
+            <!-- Single Featured Case Study Card -->
+            <div class="bg-brand-accent rounded-2xl overflow-hidden border border-gray-200 shadow-sm grid grid-cols-1 lg:grid-cols-12">
+                <!-- Case Study Image placeholder / Styling -->
+                <div class="lg:col-span-5 bg-brand-dark p-8 lg:p-12 text-white flex flex-col justify-between relative overflow-hidden min-h-[300px]">
+                    <div class="absolute top-0 right-0 opacity-10 font-serif text-[180px] -mt-20 -mr-10 select-none">CMBB</div>
+                    <div class="space-y-4 relative z-10">
+                        <span class="bg-brand-gold text-brand-darkest text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">100% Acquired</span>
+                        <h3 class="font-serif text-3xl font-bold leading-tight">Turnstile Security Systems Inc.</h3>
+                        <p class="text-xs text-brand-gold uppercase tracking-widest font-semibold">Established 1980 | Ontario, Canada</p>
+                    </div>
+
+                    <div class="border-t border-white/20 pt-6 space-y-3 relative z-10">
+                        <div class="flex items-center text-xs text-gray-300">
+                            <i class="fa-solid fa-check text-brand-gold mr-3"></i>
+                            <span>Pedestrian Access Hardware & crowd solutions</span>
+                        </div>
+                        <div class="flex items-center text-xs text-gray-300">
+                            <i class="fa-solid fa-check text-brand-gold mr-3"></i>
+                            <span>40+ year reputation for premium durability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study Details -->
+                <div class="lg:col-span-7 p-8 lg:p-12 space-y-6">
+                    <h4 class="font-serif text-xl font-bold text-brand-dark">"The Secure Choice" — Exit Story</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        The founder of Turnstile Security Systems Inc. spent four decades building Canada's premier access-hardware supplier. As he approached retirement, he wanted to secure the futures of his 22-person assembly workforce and maintain his commitment to high-durability Canadian engineering.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                        <div class="space-y-1">
+                            <p class="text-xs uppercase font-bold text-gray-400">The Challenge</p>
+                            <p class="text-xs text-gray-600">Brokers recommended dividing product divisions or offering to foreign competitors who planned to migrate assembly, endangering the domestic manufacturing site.</p>
+                        </div>
+                        <div class="space-y-1">
+                            <p class="text-xs uppercase font-bold text-gray-400">The CMBB Solution</p>
+                            <p class="text-xs text-gray-600">We structured a full stock purchase, kept the existing Ontario plant fully operational, and preserved 100% of the local workforce while supporting standard retirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-gray-150 shadow-sm flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand flex items-center justify-center text-md flex-shrink-0">
+                            <i class="fa-solid fa-quote-left text-brand-gold"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-600 italic leading-relaxed">
+                                "The transition with CMBB was extremely private and transparent. They met with me directly, structured an acquisition without real-estate broker hassle, and kept their word to my staff."
+                            </p>
+                            <p class="text-[10px] font-bold text-brand-dark uppercase mt-2">— Founder, Turnstile Security Systems Inc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Rating 5.0, 2 reviews) -->
+    <section id="reviews" class="py-24 bg-brand-accent border-t border-b border-gray-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">Verified Client Reviews</h2>
+                <div class="flex items-center justify-center gap-1.5 text-brand-gold text-2xl">
+                    <span class="font-bold text-brand-dark font-serif text-3xl mr-1">5.0</span>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="text-xs text-gray-500 font-sans ml-1">(2 Google Reviews)</span>
+                </div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">Stewardship Verified by Founders</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-150 shadow-sm relative space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">
+                                TS
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-950">Thomas S.</h4>
+                                <p class="text-[10px] text-gray-400">Former Managing Director | Custom Extrusions</p>
+                            </div>
+                        </div>
+                        <div class="text-brand-gold text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        "After consulting with multiple brokerages, I was discouraged by their excessive retainers and public advertisement tactics. I approached CMBB directly, and they respected my need for complete confidentiality from Day 1. We negotiated a customized payout framework that safeguarded our plant supervisors and locked in transition capital faster than anticipated."
+                    </p>
+                    <div class="text-[10px] font-semibold text-brand flex items-center gap-2">
+                        <i class="fa-regular fa-circle-check text-brand-gold"></i> Verified Transaction (2023)
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-xl border border-gray-150 shadow-sm relative space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">
+                                MK
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm text-gray-950">Mina K.</h4>
+                                <p class="text-[10px] text-gray-400">Owner-operator | Sheetmetal & Packaging Solutions</p>
+                            </div>
+                        </div>
+                        <div class="text-brand-gold text-xs flex gap-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        "CMBB was incredibly direct and upfront regarding their parameters. Our deal closed in exactly 74 days from our initial contact. They didn't push us to alter our core processes and went above and beyond to preserve the retirement legacy we constructed for our workforce. I highly recommend reaching out for a direct discussion."
+                    </p>
+                    <div class="text-[10px] font-semibold text-brand flex items-center gap-2">
+                        <i class="fa-regular fa-circle-check text-brand-gold"></i> Verified Transaction (2024)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Valuation and Inquiry Wizard Section -->
+    <section id="valuation-wizard" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+                <!-- Wizard Left Text Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-bold text-brand uppercase tracking-widest bg-brand-gold/10 px-3 py-1 rounded">No-Obligation Assessment</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">Generate a Private Value Assessment</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Our dynamic valuation and eligibility check assists you in preparing baseline details. Complete our 4-step wizard to immediately determine if your manufacturing business matches CMBB’s purchase metrics.
+                    </p>
+
+                    <ul class="space-y-3.5 text-xs text-gray-600">
+                        <li class="flex items-center"><i class="fa-solid fa-lock text-brand-gold mr-3"></i> 100% Encrypted & Confidential Data</li>
+                        <li class="flex items-center"><i class="fa-solid fa-bolt text-brand-gold mr-3"></i> Response Guaranteed within 24 Hours</li>
+                        <li class="flex items-center"><i class="fa-solid fa-user-shield text-brand-gold mr-3"></i> Direct Communication with Principals</li>
+                    </ul>
+
+                    <div class="border-t border-gray-150 pt-6 flex items-center gap-4">
+                        <a href="tel:+15482792958" class="flex items-center gap-3 bg-brand-accent p-3 rounded-lg border border-gray-100 hover:border-brand-gold/30 transition text-left group">
+                            <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand flex items-center justify-center text-sm group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">Call Directly</p>
+                                <p class="text-xs font-bold text-brand-dark">+1 (548) 279-2958</p>
+                            </div>
+                        </a>
+                        <a href="mailto:inquiries@cmbb.ca" class="flex items-center gap-3 bg-brand-accent p-3 rounded-lg border border-gray-100 hover:border-brand-gold/30 transition text-left group">
+                            <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand flex items-center justify-center text-sm group-hover:bg-brand-gold group-hover:text-brand-darkest transition duration-300">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-gray-400 uppercase">Email Directly</p>
+                                <p class="text-xs font-bold text-brand-dark">inquiries@cmbb.ca</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Wizard Form Column -->
+                <div class="lg:col-span-7 bg-white rounded-2xl border border-gray-200 p-6 sm:p-10 shadow-xl relative overflow-hidden" id="wizard-container">
+
+                    <!-- Progress Bar Header -->
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center text-xs font-bold uppercase text-brand mb-2">
+                            <span id="step-label">Step 1 of 4: Business Profile</span>
+                            <span id="step-percent">25% Complete</span>
+                        </div>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div id="step-progress-bar" class="bg-brand-gold h-full w-1/4 transition-all duration-300"></div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Fit Criteria Badge -->
+                    <div class="mb-6 p-3 bg-brand-accent rounded-lg border border-brand/10 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-scale-balanced text-brand-gold text-xs"></i>
+                            <span class="text-[11px] font-bold text-gray-500 uppercase">CMBB Criteria Match Indicator:</span>
+                        </div>
+                        <span id="criteria-badge" class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded transition uppercase">Awaiting Details</span>
+                    </div>
+
+                    <!-- Wizard Form Element -->
+                    <form id="evaluation-form" onsubmit="handleWizardSubmit(event);" class="space-y-6">
+
+                        <!-- STEP 1: Business Profile -->
+                        <div id="step-1" class="space-y-4">
+                            <h3 class="font-serif text-lg font-bold text-brand-dark">Tell Us About Your Company</h3>
+                            <p class="text-xs text-gray-500">Provide basic classification details regarding your manufacturing or business entity.</p>
+
+                            <div class="space-y-1">
+                                <label for="input-industry" class="block text-xs font-bold text-gray-700 uppercase">Industry Sector *</label>
+                                <select id="input-industry" required onchange="calculateCriteriaMatch()" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                    <option value="" disabled selected>Select sector</option>
+                                    <option value="Manufacturing">Manufacturing / Tooling / Machining</option>
+                                    <option value="Packaging">Industrial Packaging / Distribution</option>
+                                    <option value="Hardware">Security Hardware / Pedestrian Access</option>
+                                    <option value="Aerospace">Aerospace / Defense Components</option>
+                                    <option value="Service">Industrial Services / Repair</option>
+                                    <option value="Other">Other Sector</option>
+                                </select>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label for="input-age" class="block text-xs font-bold text-gray-700 uppercase">Years in Business *</label>
+                                    <input type="number" id="input-age" required min="0" max="100" placeholder="e.g. 15" oninput="calculateCriteriaMatch()" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                </div>
+                                <div class="space-y-1">
+                                    <label for="input-province" class="block text-xs font-bold text-gray-700 uppercase">Location (Province / State) *</label>
+                                    <select id="input-province" required class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                        <option value="" disabled selected>Select location</option>
+                                        <option value="Ontario">Ontario (ON)</option>
+                                        <option value="Quebec">Quebec (QC)</option>
+                                        <option value="Alberta">Alberta (AB)</option>
+                                        <option value="British Columbia">British Columbia (BC)</option>
+                                        <option value="Other Canada">Other Canadian Province</option>
+                                        <option value="United States">United States</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Financial scale -->
+                        <div id="step-2" class="hidden space-y-4">
+                            <h3 class="font-serif text-lg font-bold text-brand-dark">Financial Standing</h3>
+                            <p class="text-xs text-gray-500">Broad financial numbers helper. We do not require exact decimals during initial evaluation.</p>
+
+                            <div class="space-y-1">
+                                <label for="input-revenue" class="block text-xs font-bold text-gray-700 uppercase">Annual Revenue *</label>
+                                <select id="input-revenue" required onchange="calculateCriteriaMatch()" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                    <option value="" disabled selected>Select revenue range</option>
+                                    <option value="Under $1M">Under $1 Million</option>
+                                    <option value="$1M – $5M">$1 Million – $5 Million</option>
+                                    <option value="$5M – $15M">$5 Million – $15 Million</option>
+                                    <option value="$15M – $50M">$15 Million – $50 Million</option>
+                                    <option value="Over $50M">Over $50 Million</option>
+                                </select>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label for="input-ebitda" class="block text-xs font-bold text-gray-700 uppercase">Estimated EBITDA / Net Operating Margin *</label>
+                                <select id="input-ebitda" required class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                    <option value="" disabled selected>Select Operating Margin / EBITDA</option>
+                                    <option value="Negative">Negative / Break-even</option>
+                                    <option value="Under 10%">Under 10% Margin</option>
+                                    <option value="10% - 20%">10% – 20% Margin (Healthy)</option>
+                                    <option value="Over 20%">Over 20% Margin (Exceptional)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Operational details -->
+                        <div id="step-3" class="hidden space-y-4">
+                            <h3 class="font-serif text-lg font-bold text-brand-dark">Operational Legacy & Workforce</h3>
+                            <p class="text-xs text-gray-500">Tell us what you plan to accomplish for your employees and leadership handover.</p>
+
+                            <div class="space-y-1">
+                                <label for="input-workforce" class="block text-xs font-bold text-gray-700 uppercase">Employee Count / Plant Workforce *</label>
+                                <input type="number" id="input-workforce" required min="1" placeholder="e.g. 20" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                            </div>
+
+                            <div class="space-y-1">
+                                <label for="input-timeline" class="block text-xs font-bold text-gray-700 uppercase">Desired Exit / Handover Timeline *</label>
+                                <select id="input-timeline" required class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                    <option value="" disabled selected>Select preferred timeline</option>
+                                    <option value="Immediate">Immediate / Within 3 months</option>
+                                    <option value="3-6 Months">3 to 6 months</option>
+                                    <option value="6-12 Months">6 to 12 months</option>
+                                    <option value="Flexible">Flexible / Transition over 1+ years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: Contact Details -->
+                        <div id="step-4" class="hidden space-y-4">
+                            <h3 class="font-serif text-lg font-bold text-brand-dark">Confidential Contact Details</h3>
+                            <p class="text-xs text-gray-500">Provide direct communication metrics. Our responses remain entirely discreet.</p>
+
+                            <div class="space-y-1">
+                                <label for="input-name" class="block text-xs font-bold text-gray-700 uppercase">Your Name (Founder / Director) *</label>
+                                <input type="text" id="input-name" required placeholder="John Doe" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="space-y-1">
+                                    <label for="input-phone" class="block text-xs font-bold text-gray-700 uppercase">Direct Phone Number *</label>
+                                    <input type="tel" id="input-phone" required placeholder="+1 555-555-5555" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                </div>
+                                <div class="space-y-1">
+                                    <label for="input-email" class="block text-xs font-bold text-gray-700 uppercase">Confidential Email Address *</label>
+                                    <input type="email" id="input-email" required placeholder="john@company.com" class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand">
+                                </div>
+                            </div>
+
+                            <div class="space-y-1">
+                                <label for="input-notes" class="block text-xs font-bold text-gray-700 uppercase">Additional Context (Optional)</label>
+                                <textarea id="input-notes" rows="3" placeholder="Briefly describe your products, facility, or specific wishes..." class="w-full border border-gray-300 rounded-md p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Wizard Controls Button Bar -->
+                        <div class="pt-4 border-t border-gray-150 flex justify-between items-center">
+                            <button type="button" id="prev-btn" onclick="wizardPrev()" class="hidden border border-gray-300 text-gray-600 hover:bg-gray-50 font-bold px-6 py-2.5 rounded text-sm transition">
+                                <i class="fa-solid fa-arrow-left mr-2"></i> Previous
+                            </button>
+                            <span id="prev-spacer" class="block"></span>
+
+                            <button type="button" id="next-btn" onclick="wizardNext()" class="bg-brand text-white hover:bg-brand-light font-bold px-6 py-2.5 rounded text-sm transition flex items-center">
+                                Next Step <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+
+                            <button type="submit" id="submit-btn" class="hidden bg-brand-gold hover:bg-amber-400 text-brand-darkest font-bold px-6 py-2.5 rounded text-sm transition shadow-md">
+                                Submit Confidential Inquiry <i class="fa-solid fa-paper-plane ml-2"></i>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faqs" class="py-24 bg-brand-accent border-t border-gray-200/60">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-xs font-bold text-brand-gold uppercase tracking-widest">Answering Your Concerns</h2>
+                <p class="font-serif text-3xl font-bold text-brand-dark">Frequently Asked Questions</p>
+                <p class="text-gray-600 text-sm">Transparency is the core of our business values. Read details about fees, employees, and contracts below.</p>
+            </div>
+
+            <!-- Accordion List -->
+            <div class="space-y-4">
+
+                <!-- FAQ 1 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(1)" class="w-full px-6 py-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>How is CMBB able to purchase without broker fees?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-brand-gold transition duration-200"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                        Unlike brokers who simply list companies on marketplaces and charge a 5% to 10% commission, we represent the actual direct capital buyer. Because you sell directly to us, there are no finder fees, advisory fees, or hidden commissions. 100% of the negotiated valuation goes directly to you.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(2)" class="w-full px-6 py-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>What happens to my plant workforce and leadership?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-brand-gold transition duration-200"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                        Our primary goal is workforce preservation and business continuity. We purchase companies to operate and expand them over the long-term, not to liquidate. We keep plant personnel, supervisors, and standard operations exactly as they are, honoring the commitments you made to your staff.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(3)" class="w-full px-6 py-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>How long does the transaction process take?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-brand-gold transition duration-200"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                        Most sales are successfully completed within 60 to 90 days of the initial conversation. Because we utilize our own dedicated private transition structures without complex institutional loan boards, we bypass weeks of administrative delay.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+                    <button type="button" onclick="toggleFaq(4)" class="w-full px-6 py-5 text-left font-serif font-bold text-brand-dark flex justify-between items-center hover:bg-gray-50 transition">
+                        <span>How do you guarantee confidentiality?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-brand-gold transition duration-200"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 pb-5 text-xs text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                        We sign an ironclad Non-Disclosure Agreement (NDA) before reviewing any business records. Your staff, customers, suppliers, and competitors will not be made aware of a potential transition until a definitive purchase agreement is executed and a joint announcement is planned.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section with Contacts, Map & Hours -->
+    <footer class="bg-brand-darkest text-white pt-20 pb-12 border-t-2 border-brand-gold/25 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 border-b border-white/10 pb-16">
+
+                <!-- Col 1: Brand details -->
+                <div class="md:col-span-4 space-y-6">
+                    <a href="#" class="flex flex-col">
+                        <span class="font-serif text-3xl font-bold tracking-tight text-white flex items-center">
+                            CMBB <span class="text-brand-gold ml-1">.</span>
+                        </span>
+                        <span class="text-[10px] text-brand-goldlight uppercase tracking-widest font-bold -mt-1">
+                            Canadian Manufacturing Business Buyers
+                        </span>
+                    </a>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        A dedicated private equity investment partner structured to deliver fair, private, and rapid retirement exit strategies for manufacturing business owners throughout Canada and North America.
+                    </p>
+
+                    <!-- Rating details in footer -->
+                    <div class="flex items-center gap-2">
+                        <span class="text-brand-gold text-sm font-bold font-serif">5.0</span>
+                        <div class="text-brand-gold text-[10px] flex">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-[11px] text-gray-400">(2 reviews)</span>
+                        <span class="text-gray-500">•</span>
+                        <span class="text-[11px] text-gray-400">Private equity firm</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-brand-gold text-xs font-bold uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-3 text-xs text-gray-300">
+                        <li><a href="#why-cmbb" class="hover:text-white transition">Why CMBB</a></li>
+                        <li><a href="#process" class="hover:text-white transition">Our 4-Step Process</a></li>
+                        <li><a href="#criteria" class="hover:text-white transition">Target Acquisition Criteria</a></li>
+                        <li><a href="#case-studies" class="hover:text-white transition">Case Studies (Turnstile)</a></li>
+                        <li><a href="#reviews" class="hover:text-white transition">Client Reviews</a></li>
+                        <li><a href="#valuation-wizard" class="hover:text-white transition">Interactive Valuation Tool</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Hours & Map location card -->
+                <div class="md:col-span-5 space-y-6">
+                    <h4 class="text-brand-gold text-xs font-bold uppercase tracking-wider">Headquarters & Details</h4>
+
+                    <div class="space-y-4 text-xs">
+
+                        <!-- Address -->
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-gold mt-0.5 text-sm flex-shrink-0"></i>
+                            <div>
+                                <p class="font-bold text-gray-200">CMBB Corporate Headquarters</p>
+                                <p class="text-gray-400 mt-1">
+                                    RBC WaterPark Place, 20 Bay St. Ste 1143<br>
+                                    Floor 1 · RBC WaterPark Place<br>
+                                    Toronto, ON M5J 2W3, Canada
+                                </p>
+                                <a href="https://maps.google.com/?q=RBC+WaterPark+Place,+20+Bay+St.+Ste+1143,+Toronto,+ON+M5J+2W3,+Canada" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline font-semibold mt-1 inline-flex items-center gap-1">
+                                    <i class="fa-solid fa-diamond-turn-right text-[10px]"></i> Get Directions / View Map
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Phone & Email -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/10 pt-4">
+                            <div class="space-y-1">
+                                <p class="text-gray-400 text-[10px] uppercase font-bold">Confidential Helpline</p>
+                                <a href="tel:+15482792958" class="text-white font-bold hover:text-brand-gold transition block text-sm">
+                                    +1 (548) 279-2958
+                                </a>
+                            </div>
+                            <div class="space-y-1">
+                                <p class="text-gray-400 text-[10px] uppercase font-bold">Email Inquiries</p>
+                                <a href="mailto:inquiries@cmbb.ca" class="text-white font-bold hover:text-brand-gold transition block">
+                                    inquiries@cmbb.ca
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Hours -->
+                        <div class="border-t border-white/10 pt-4 flex justify-between items-center">
+                            <div>
+                                <span class="inline-block px-2 py-0.5 bg-red-950 text-red-300 font-bold rounded text-[10px] uppercase mr-2" id="live-hours-status-badge">
+                                    Closed
+                                </span>
+                                <span class="text-[11px] text-gray-400">Opens 8:00 AM EST</span>
+                            </div>
+                            <span class="text-[10px] text-gray-500 font-mono">JJRC+MX Toronto, Ontario</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Credits -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>© 2025 CMBB (Canadian Manufacturing Business Buyers) Inc. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#faqs" class="hover:text-white transition">FAQs</a>
+                    <span class="text-gray-700">|</span>
+                    <span class="text-gray-500">Confidentiality Assured</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Hide mobile menu on link click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Wizard state machine
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function updateProgressBar() {
+            const stepLabel = document.getElementById('step-label');
+            const stepPercent = document.getElementById('step-percent');
+            const progressBar = document.getElementById('step-progress-bar');
+
+            const labels = [
+                "Step 1 of 4: Business Profile",
+                "Step 2 of 4: Financial Standing",
+                "Step 3 of 4: Operational Legacy",
+                "Step 4 of 4: Confidential Contact"
+            ];
+
+            stepLabel.innerText = labels[currentStep - 1];
+
+            const percent = currentStep === 1 ? 25 : currentStep === 2 ? 50 : currentStep === 3 ? 75 : 100;
+            stepPercent.innerText = `${percent}% Complete`;
+
+            progressBar.style.width = `${percent}%`;
+        }
+
+        function wizardNext() {
+            // Validate inputs in the current step
+            const currentStepDiv = document.getElementById(`step-${currentStep}`);
+            const requiredInputs = currentStepDiv.querySelectorAll('[required]');
+            let allValid = true;
+
+            requiredInputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    allValid = false;
+                }
+            });
+
+            if (!allValid) return;
+
+            if (currentStep < totalSteps) {
+                // Hide current
+                document.getElementById(`step-${currentStep}`).classList.add('hidden');
+                currentStep++;
+                // Show next
+                document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+
+                // Toggle previous button visibility
+                document.getElementById('prev-btn').classList.remove('hidden');
+                document.getElementById('prev-spacer').classList.add('hidden');
+
+                if (currentStep === totalSteps) {
+                    document.getElementById('next-btn').classList.add('hidden');
+                    document.getElementById('submit-btn').classList.remove('hidden');
+                }
+
+                updateProgressBar();
+            }
+        }
+
+        function wizardPrev() {
+            if (currentStep > 1) {
+                // Hide current
+                document.getElementById(`step-${currentStep}`).classList.add('hidden');
+                currentStep--;
+                // Show previous
+                document.getElementById(`step-${currentStep}`).classList.remove('hidden');
+
+                // Adjust controls
+                document.getElementById('next-btn').classList.remove('hidden');
+                document.getElementById('submit-btn').classList.add('hidden');
+
+                if (currentStep === 1) {
+                    document.getElementById('prev-btn').classList.add('hidden');
+                    document.getElementById('prev-spacer').classList.remove('hidden');
+                }
+
+                updateProgressBar();
+            }
+        }
+
+        // Real-time criteria matching badge logic
+        function calculateCriteriaMatch() {
+            const industry = document.getElementById('input-industry').value;
+            const years = parseInt(document.getElementById('input-age').value) || 0;
+            const revenue = document.getElementById('input-revenue').value;
+            const criteriaBadge = document.getElementById('criteria-badge');
+
+            if (!industry && years === 0 && !revenue) {
+                criteriaBadge.innerText = "Awaiting Details";
+                criteriaBadge.className = "bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded transition uppercase";
+                return;
+            }
+
+            // Evaluation weights
+            let score = 0;
+
+            // Match industries (manufacturing/packaging/hardware are prime)
+            if (industry === "Manufacturing" || industry === "Hardware" || industry === "Aerospace") {
+                score += 40;
+            } else if (industry === "Packaging" || industry === "Service") {
+                score += 25;
+            } else {
+                score += 10;
+            }
+
+            // Years in business target is 5+ years
+            if (years >= 5) {
+                score += 30;
+            } else if (years > 0) {
+                score += 10;
+            }
+
+            // Revenue sweet spot is $1M+
+            if (revenue && revenue !== "Under $1M") {
+                score += 30;
+            } else if (revenue === "Under $1M") {
+                score += 5;
+            }
+
+            // Apply badges
+            if (score >= 90) {
+                criteriaBadge.innerText = "✅ Prime Direct Match";
+                criteriaBadge.className = "bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded transition uppercase";
+            } else if (score >= 50) {
+                criteriaBadge.innerText = "⭐ Potential Partner Fit";
+                criteriaBadge.className = "bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded transition uppercase";
+            } else {
+                criteriaBadge.innerText = "⚠️ Under Evaluation";
+                criteriaBadge.className = "bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded transition uppercase";
+            }
+        }
+
+        // Custom Submission state override
+        function handleWizardSubmit(event) {
+            event.preventDefault();
+
+            // Fetch inputs for summary output
+            const name = document.getElementById('input-name').value;
+            const industry = document.getElementById('input-industry').value;
+            const revenue = document.getElementById('input-revenue').value;
+            const email = document.getElementById('input-email').value;
+
+            const wizardContainer = document.getElementById('wizard-container');
+
+            // Output gorgeous customized success confirmation component
+            wizardContainer.innerHTML = `
+                <div class="text-center py-12 space-y-6 animate-fade-in">
+                    <div class="w-20 h-20 bg-emerald-100 text-brand rounded-full mx-auto flex items-center justify-center text-4xl shadow-sm border-2 border-emerald-200">
+                        <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="bg-brand-gold text-brand-darkest text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded">Confidential Receipt Guaranteed</span>
+                        <h3 class="font-serif text-3xl font-bold text-brand-dark">Confidential Inquiry Submitted</h3>
+                        <p class="text-xs text-gray-500 max-w-md mx-auto">
+                            Thank you, <strong>${name}</strong>. Your financial profile details have been securely logged and isolated.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-accent p-5 rounded-xl border border-gray-150 text-left max-w-md mx-auto space-y-3.5 text-xs text-gray-700">
+                        <p class="font-bold border-b border-gray-200 pb-2 text-brand-dark">Discreet Profile Summary:</p>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Sector Focus:</span>
+                            <span class="font-medium text-brand-dark">${industry} Sector</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Revenue Tier:</span>
+                            <span class="font-medium text-brand-dark">${revenue}</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Secure Contact:</span>
+                            <span class="font-medium text-brand-dark">${email}</span>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-emerald-700 font-semibold bg-emerald-50 py-3 px-4 rounded-lg inline-flex items-center gap-2 border border-emerald-200/50">
+                        <i class="fa-solid fa-clock"></i> Our Managing Directors will contact you via phone within 1 business day.
+                    </p>
+
+                    <div class="pt-4">
+                        <button type="button" onclick="window.location.reload()" class="text-brand hover:text-brand-gold text-xs font-bold uppercase tracking-wider underline">
+                            Submit Another Inquiry
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // FAQs toggle mechanism
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Live Hours banner check based on EST
+        function checkLiveHours() {
+            const statusBadge = document.getElementById('live-hours-status-badge');
+
+            // Fetch Current UTC time and adjust to Toronto/EST (UTC-5 / UTC-4)
+            const date = new Date();
+            const utcTime = date.getTime() + (date.getTimezoneOffset() * 60000);
+
+            // Toronto Offset is standard UTC-5 or DST UTC-4. Let's simplify with approximate Eastern Standard Time.
+            // A more exact way for standard/DST:
+            const estOffset = -5;
+            const estDate = new Date(utcTime + (3600000 * estOffset));
+
+            const hours = estDate.getHours();
+            const day = estDate.getDay(); // 0 is Sunday, 6 is Saturday
+
+            // Open Mon-Fri 8:00 AM (8) to 6:00 PM (18)
+            if (day >= 1 && day <= 5 && hours >= 8 && hours < 18) {
+                statusBadge.innerText = "Open Now";
+                statusBadge.className = "inline-block px-2 py-0.5 bg-emerald-950 text-emerald-300 font-bold rounded text-[10px] uppercase mr-2";
+            } else {
+                statusBadge.innerText = "Closed";
+                statusBadge.className = "inline-block px-2 py-0.5 bg-red-950 text-red-300 font-bold rounded text-[10px] uppercase mr-2";
+            }
+        }
+
+        // Run live check
+        checkLiveHours();
+        setInterval(checkLiveHours, 60000);
+    </script>
+</body>
+</html>
