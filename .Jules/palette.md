@@ -1,0 +1,3 @@
+## 2025-02-20 - Multi-step form focus management
+**Learning:** When implementing or modifying dynamic multi-step client-side forms, screen readers and keyboard users lose context if focus remains on the button that triggered the step change, or gets lost entirely when the new step unhides.
+**Action:** Always programmatically shift focus to the heading of the newly revealed step (using `tabindex="-1"` and `focus:outline-none` on the heading, and `.focus()` in the transition logic) to maintain context and logical tab order for assistive technologies.
